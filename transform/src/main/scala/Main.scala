@@ -14,7 +14,7 @@ object Main extends App {
   os.remove.all(before)
   os.remove.all(after)
   os.remove.all(javaProjLib)
-  os.proc("sbt", s"$javaProjName/clean").call(cwd = root)
+  os.proc("sbt", s"$javaProjName/clean").call(cwd = root, stdout = os.Inherit)
 
   println("cloning...")
 
@@ -29,7 +29,7 @@ object Main extends App {
 
   println("packaging...")
 
-  os.proc("sbt", "scalachess/package").call(cwd = after)
+  os.proc("sbt", "scalachess/package").call(cwd = after, stdout = os.Inherit)
 
   println("copying...")
 
@@ -39,9 +39,9 @@ object Main extends App {
     createFolders = true,
   )
 
-  println("compiling ...")
+  println("running...")
 
-  os.proc("sbt", s"$javaProjName/compile").call(cwd = root)
+  os.proc("sbt", s"$javaProjName/runMain JMain").call(cwd = root, stdout = os.Inherit)
 
   println("done")
 }
