@@ -1,5 +1,11 @@
+//import chess.Square$package$Square$; // cannot find symbol: symbol: class Square$package$Square$, location: package chess
+
 public class App {
     public static void main(String[] args) throws Exception {
+        System.out.println(
+//                chess.Square.fromKey("A1") // cannot find symbol: symbol: class Square, location: package chess
+        );
+
         System.out.println(
 //                chess.Square$package$Square$.MODULE$.fromKey("A1") // package chess.Square$package$Square$ does not exist
         );
