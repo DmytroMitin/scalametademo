@@ -1,5 +1,5 @@
 object SMain extends App {
   println(
-    chess.Square.fromKey("A1")
+    chess.Square.fromKey("a1") // Some(0)
   )
 }
