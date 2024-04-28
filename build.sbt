@@ -3,7 +3,13 @@ lazy val scala3V = "3.4.1"
 
 lazy val javaProj = project
   .settings(
-    scalaVersion := scala3V
+    scalaVersion := scala3V,
+    libraryDependencies ++= Seq(
+      "org.lichess" %% "scalalib-core" % "11.1.5",
+    ),
+    resolvers ++= Seq(
+      "lila-maven" at "https://raw.githubusercontent.com/ornicar/lila-maven/master",
+    ),
   )
 
 //lazy val before = project
